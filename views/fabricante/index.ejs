@@ -1,0 +1,63 @@
+<%- include('../partials/header.ejs')  %>
+<link rel="stylesheet" href="/bootstrap/css/grid.css"/>
+<title>CADASTRO DE FABRICANTES</title> 
+
+</head>
+
+<body>
+    
+    <div class="container">
+
+        <%- include('../partials/menu.ejs') %>
+
+        <div class="card">
+            <div class="card-body">
+              INSERÇÃO DE FABRICANTES.
+            </div>
+          </div>
+
+
+        <div class="card-body">
+            <form action="http://localhost:3008/inserirFabricantes" method="post">
+                
+                <div class="input-group">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text">FABRICANTE E CNPJ</span>
+                    </div>
+                    <input type="text" class="form-control" name="nome_fabricante" id="nome_fabricante" placeholder="DIGITE O NOME DA FABRICANTE">
+                    <input type="text" class="form-control" name="cnpj_fabricante" id="cnpj_fabricante" placeholder="DIGITE O CNPJ">
+                  </div>
+                
+                <button class="btn btn-success mt-2">CADASTRAR</button>
+            </form>
+        </div> <br>
+
+        <div class="card">
+            <div class="card-body">
+              LISTA DE FABRICANTES.
+            </div>
+          </div>
+
+        <div class="container1">
+        <% 
+          fabricantes.forEach(fabricante=>{
+        %>
+        
+          <div class="card border-secondary mb-3" style="max-width: 28rem;">
+            <div class="card-header">FABRICANTE</div>
+            <div class="card-body text-primary">
+              <h5 class="card-title"><%= fabricante.nome_fabricante %></h5>
+              <p class="card-text"><%= fabricante.cnpj_fabricante %>.</p>
+              <a href="/formEdicaoFabricantes/<%= fabricante.id %>" class="btn btn-success mt-1">EDITAR</a>
+                <a href="/excluirFabricante/<%= fabricante.id %>" class="btn btn-danger mt-1">EXCLUIR</a>
+            </div>
+          </div>
+        <% }) %>
+        </div>
+    </div>
+
+    </div>
+
+    </body>
+
+<%- include('../partials/footer.ejs')  %>

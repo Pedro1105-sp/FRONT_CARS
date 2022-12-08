@@ -1,0 +1,39 @@
+<%- include('../partials/header.ejs')  %>
+
+<title>EDIÇÃO DE FABRICANTE</title>
+
+</head>
+
+<body>
+    
+    <div class="container">
+
+        <%- include('../partials/menu.ejs') %>
+
+        <div class="card mt-2">
+            <div class="card-header">EDIÇÃO DE FABRICANTES</div>
+        </div>
+
+        <div class="card-body">
+            <form action="http://localhost:3008/alterarFabricantes" method="post">
+                
+                <label for="">FABRICANTE</label>
+
+                <input
+                    type="hidden"
+                    name="id" id="id"
+                    value="<%= fabricante.id %>"/>
+
+                <input type="text" class="form-control" 
+                        name="nome_fabricante" id="nome_fabricante"
+                        placeholder="DIGITE UMA CATEGORIA"
+                        value="<%= fabricante.nome_fabricante %>">
+                
+                <button class="btn btn-success mt-2">EDITAR</button>
+            </form>
+        </div>
+    </div>
+
+    </body>
+
+<%- include('../partials/footer.ejs')  %>
